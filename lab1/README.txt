@@ -37,4 +37,41 @@ Exercício 2:
     
     
     
-    d)
+    d) src: https://www.baeldung.com/jacoco
+    Depois de adicionar o seguinte plugin do maven, no pom.xml:
+    
+    <build>
+    <plugins>
+    <!-- JUnit 5 requires Surefire version 2.22.1 or higher -->
+    <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+    </plugin>
+    <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.6</version>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>prepare-agent</goal>
+                </goals>
+            </execution>
+            <execution>
+                <id>report</id>
+                <phase>prepare-package</phase>
+                <goals>
+                    <goal>report</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+    </plugins>
+    </build>
+    
+    $mvn test 				// para verificar que tudo corria sem problemas
+    $mvn test jacoco:report // para obter os resultados 
+    
+    Na pasta TQS/lab1/P2Euromillions/tqs_labs_euromillion_unit/target/site/jacoco, encontra-se o ficheiro index.html onde é possível ver os resultados obtidos com os testes criados. 
+	Num total de 573 instruções, apenas 153 não foram avaliadas, um coverage de 73%. 
+	De 52 branches, 12 não foram avaliados, 76%. 
