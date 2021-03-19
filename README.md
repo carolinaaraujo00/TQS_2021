@@ -2,7 +2,7 @@
 
 LEI 2020/2021, UA
 
-Este repositório destina-se à entrega dos guiões propostos nas aulas práticas de TQS. 
+Este repositório destina-se à entrega dos guiões propostos nas aulas práticas de TQS.
 Realizado por: Carolina Simões Araújo, nmec93248
 
 
