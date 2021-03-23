@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: StocksPortfolioTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.041 s <<< FAILURE! - in StocksPortfolioTest
+getTotalValue  Time elapsed: 0.036 s  <<< ERROR!
+java.lang.NullPointerException
+	at StocksPortfolioTest.getTotalValue(StocksPortfolioTest.java:20)
+
