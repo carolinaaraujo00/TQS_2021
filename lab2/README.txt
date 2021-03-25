@@ -49,44 +49,46 @@ LAB_2_TQS
 	
 3) GeocodeTestIT
 	
-	Neste passo, em vez de se usar um mock para testar, deve usar-se a API em si. Como são testes de integração, deve correr-se o seguinte comando: 
+	Neste passo, em vez de se usar um mock para testar, deve usar-se a API em si. Criou-se o teste para o whenBadCoordidates_throwBadArrayindex, bem como um para o caso de ser passado um URL null: whenNullURL_throwNullPointer(). Ambos semelhantes aos criados na alínea 2, mas sem usar um mock para testar. 
+	No caso de APIs, não se devem criar testes baseados em mocks porque a API, normalmente de terceiros, pode ser alterada. Quando isto acontece, os testes criados com mock continuaram a passar sem problemas, visto que nós é que decidimos como é que o mock se comporta em cada situação, e o código de produção falha porque usa a API em si. Portanto, nestes casos é melhor fazer testes de integração, não usando mocks. 
+	
+	
+	Como são testes de integração, deve correr-se o seguinte comando: 
 	
 	$mvn install failsafe:integration-test
-	tendo sido obtidos os seguintes resultados >> 
+	Tendo sido obtidos os seguintes resultados >> 
 	
-	(...)
-	[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.868 s - in integration.AddressResolverIT
-	[INFO] 
-	[INFO] Results:
-	[INFO] 
-	[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
-	[INFO] 
-	[INFO] ------------------------------------------------------------------------
-	[INFO] BUILD SUCCESS
-	[INFO] ------------------------------------------------------------------------
-	[INFO] Total time:  2.494 s
-	[INFO] Finished at: 2021-03-24T10:59:05Z
-	[INFO] ------------------------------------------------------------------------
+		[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.185 s - in integration.AddressResolverIT
+		[INFO] 
+		[INFO] Results:
+		[INFO] 
+		[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+		[INFO] 
+		[INFO] ------------------------------------------------------------------------
+		[INFO] BUILD SUCCESS
+		[INFO] ------------------------------------------------------------------------
+		[INFO] Total time:  2.528 s
+		[INFO] Finished at: 2021-03-25T10:25:02Z
+		[INFO] ------------------------------------------------------------------------
 
-	Process finished with exit code 0
+		Process finished with exit code 0
 	
 	
 	
-	enquanto que, com apenas $mvn test >> 
+	Enquanto que, com apenas $mvn test >> 
 	
-	(...)
-	[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.27 s - in geocoding.AddressResolverTest
-	[INFO] 
-	[INFO] Results:
-	[INFO] 
-	[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
-	[INFO] 
-	[INFO] ------------------------------------------------------------------------
-	[INFO] BUILD SUCCESS
-	[INFO] ------------------------------------------------------------------------
-	[INFO] Total time:  2.508 s
-	[INFO] Finished at: 2021-03-24T11:01:44Z
-	[INFO] ------------------------------------------------------------------------
+		[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.328 s - in geocoding.AddressResolverTest
+		[INFO] 
+		[INFO] Results:
+		[INFO] 
+		[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+		[INFO] 
+		[INFO] ------------------------------------------------------------------------
+		[INFO] BUILD SUCCESS
+		[INFO] ------------------------------------------------------------------------
+		[INFO] Total time:  2.075 s
+		[INFO] Finished at: 2021-03-25T10:24:26Z
+		[INFO] ------------------------------------------------------------------------
 
-	Process finished with exit code 0
+		Process finished with exit code 0
 	

@@ -45,7 +45,7 @@ class AddressResolverTest {
     @Test
     public void whenBadCoordidates_throwBadArrayindex() throws IOException, URISyntaxException, ParseException {
         when(httpClient.get(contains("location=360.000000%2C-360.000000"))).thenThrow(IndexOutOfBoundsException.class);
-        assertThrows( IndexOutOfBoundsException.class,
+        assertThrows(IndexOutOfBoundsException.class,
                 () -> resolver.findAddressForLocation(360, -360));
     }
 
