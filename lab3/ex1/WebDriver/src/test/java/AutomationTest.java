@@ -2,8 +2,7 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.core.IsNot.not;
 import org.openqa.selenium.By;
@@ -74,8 +73,6 @@ public class AutomationTest {
     driver.findElement(By.id("nameOnCard")).sendKeys(Keys.TAB);
     driver.findElement(By.id("rememberMe")).click();
     driver.findElement(By.cssSelector(".btn-primary")).click();
-    driver.findElement(By.linkText("home")).click();
-    driver.findElement(By.cssSelector("html")).click();
-    assertEquals(driver.findElement(By.cssSelector(".panel-heading")).getText(), "Login");
+    assertEquals(driver.getTitle(), "BlazeDemo Confirmation");
   }
 }

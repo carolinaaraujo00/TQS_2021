@@ -71,6 +71,6 @@ public class AutomationTest {
     driver.findElement(By.cssSelector(".btn-primary")).click();
     driver.findElement(By.linkText("home")).click();
     driver.findElement(By.cssSelector("html")).click();
-    assertThat(driver.findElement(By.cssSelector(".panel-heading")).getText(), is("Login"));
+    assertThat(driver.getTitle(), is("https://blazedemo.com/confirmation.php"));
   }
 }

@@ -300,36 +300,12 @@
       ],
       "value": ""
     }, {
-      "id": "8906964c-5da4-4056-833f-5e9b4a7fd5bf",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=home",
-      "targets": [
-        ["linkText=home", "linkText"],
-        ["css=.brand:nth-child(3)", "css:finder"],
-        ["xpath=//a[contains(text(),'home')]", "xpath:link"],
-        ["xpath=//a[contains(@href, 'home')]", "xpath:href"],
-        ["xpath=//a[3]", "xpath:position"],
-        ["xpath=//a[contains(.,'home')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "d3db6220-e872-4811-ab35-aaaca71b1b5f",
-      "comment": "",
-      "command": "click",
-      "target": "css=html",
-      "targets": [
-        ["css=html", "css:finder"],
-        ["xpath=//html", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "1cca23c4-058d-4709-bf0d-acd41ef1f92a",
       "comment": "",
-      "command": "assertText",
-      "target": "css=.panel-heading",
+      "command": "assertTitle",
+      "target": "https://blazedemo.com/confirmation.php",
       "targets": [],
-      "value": "Login"
+      "value": "BlazeDemo Confirmation"
     }]
   }],
   "suites": [{
