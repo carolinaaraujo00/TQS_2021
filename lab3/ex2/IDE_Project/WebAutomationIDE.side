@@ -303,9 +303,9 @@
       "id": "1cca23c4-058d-4709-bf0d-acd41ef1f92a",
       "comment": "",
       "command": "assertTitle",
-      "target": "https://blazedemo.com/confirmation.php",
+      "target": "BlazeDemo Confirmation",
       "targets": [],
-      "value": "BlazeDemo Confirmation"
+      "value": ""
     }]
   }],
   "suites": [{

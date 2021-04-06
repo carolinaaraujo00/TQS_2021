@@ -1,0 +1,50 @@
+-------------------------------------------------------------------------------
+Test set: ClassTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 76.774 s <<< FAILURE! - in ClassTest
+testWithChromeAndFirefox{ChromeDriver, FirefoxDriver}  Time elapsed: 51.162 s  <<< ERROR!
+org.junit.jupiter.api.extension.ParameterResolutionException: 
+Failed to resolve parameter [org.openqa.selenium.chrome.ChromeDriver arg0] in method [void ClassTest.testWithChromeAndFirefox(org.openqa.selenium.chrome.ChromeDriver,org.openqa.selenium.firefox.FirefoxDriver)]: org.openqa.selenium.WebDriverException: unknown error: cannot find Chrome binary
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'swag', ip: '192.168.1.12', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-48-generic', java.version: '11.0.10'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x561d6ae3a2b9 <unknown>
+
+Caused by: io.github.bonigarcia.seljup.SeleniumJupiterException: 
+org.openqa.selenium.WebDriverException: unknown error: cannot find Chrome binary
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'swag', ip: '192.168.1.12', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-48-generic', java.version: '11.0.10'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x561d6ae3a2b9 <unknown>
+
+Caused by: org.openqa.selenium.WebDriverException: 
+unknown error: cannot find Chrome binary
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'swag', ip: '192.168.1.12', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-48-generic', java.version: '11.0.10'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x561d6ae3a2b9 <unknown>
+
+
+testWithOneChrome{ChromeDriver}  Time elapsed: 0.001 s  <<< ERROR!
+org.junit.jupiter.api.extension.ParameterResolutionException: 
+Failed to resolve parameter [org.openqa.selenium.chrome.ChromeDriver arg0] in method [void ClassTest.testWithOneChrome(org.openqa.selenium.chrome.ChromeDriver)]: org.openqa.selenium.WebDriverException: unknown error: cannot find Chrome binary
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'swag', ip: '192.168.1.12', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-48-generic', java.version: '11.0.10'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x56199efaa2b9 <unknown>
+
+Caused by: io.github.bonigarcia.seljup.SeleniumJupiterException: 
+org.openqa.selenium.WebDriverException: unknown error: cannot find Chrome binary
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'swag', ip: '192.168.1.12', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-48-generic', java.version: '11.0.10'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x56199efaa2b9 <unknown>
+
+Caused by: org.openqa.selenium.WebDriverException: 
+unknown error: cannot find Chrome binary
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'swag', ip: '192.168.1.12', os.name: 'Linux', os.arch: 'amd64', os.version: '5.8.0-48-generic', java.version: '11.0.10'
+Driver info: driver.version: ChromeDriver
+remote stacktrace: #0 0x56199efaa2b9 <unknown>
+
+

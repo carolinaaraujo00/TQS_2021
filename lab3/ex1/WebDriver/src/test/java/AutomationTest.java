@@ -74,5 +74,4 @@ public class AutomationTest {
     driver.findElement(By.id("rememberMe")).click();
     driver.findElement(By.cssSelector(".btn-primary")).click();
     assertEquals(driver.getTitle(), "BlazeDemo Confirmation");
-  }
-}
+  }}
