@@ -5,6 +5,7 @@ import io.cucumber.java.en.When;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -17,17 +18,30 @@ public class BookSearchSteps {
     List<Book> result = new ArrayList<>();
 
     @ParameterType("([0-9]{4})-([0-9]{2})-([0-9]{2})")
-    public LocalDateTime iso8601Date(String year, String month, String day) {return textToDate()}
+    public Date iso8601Date(String year, String month, String day) {
+        return textToDate(year, month, day);
+    }
 
-    @Given("book with the title {string}, written by {string}, published in {iso8601Date}")
-    public void addNewBook(final String title, final String author, final LocalDateTime published) {
+    private Date textToDate(String year, String month, String day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
+        return calendar.getTime();
+    }
+
+    @Given("(a|another) book with the title {string}, written by {string}, published in {iso8601Date}")
+    public void addNewBook(final String title, final String author, final Date published) {
         Book book = new Book(title, author, published);
         library.addBook(book);
     }
 
     @When("the customer searches for books published between {iso8601Date} and {iso8601Date}")
-    public void setSearchParameters(@Format("yyyy") final Date from, @Format("yyyy") final Date to) {
+    public void setSearchParameters(final Date from, final Date to) {
         result = library.findBooks(from, to);
+    }
+
+    @When("the customer searches for books by {string}")
+    public void the_customer_searches_for_books_by_author(String string) {
+        result = library.findByAuthor(string);
     }
 
     @Then("{int} books should have been found")
