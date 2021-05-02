@@ -65,3 +65,18 @@ Task 2: RESOLVE TECHNICAL DEBT
 		
 Depois de resolver os problemas e voltar a submeter o código para análise, debt passou para 35min, fiquei com apenas 14 code smells e a overall coverage ficou nos 71.1%. 
 Deixarei na pasta lab6 um print destes resultados, como forma de comprovar, bem como o código refactored. 
+
+
+######################################################
+Task 3: DEFINE AND APPLY QUALITY GATES
+
+Para esta parte, foi usado o projeto de IES e a alínea foi realizada em conjunto com o Miguel Almeida, um dos colegas com que o projeto foi realizado. 
+Conclusões (para além do print que se encontra em /TQS/lab6/task3):
+
+''Converage menor que 80%, Duplicated lines maior que 2%, Maintainablity pior que A, reliability pior que A, security hotspots menor que 100%, security ranking menor que A, 
+    bugs maiores que 10 uma vez que como é usada por muitos utilizadores deve ter minimo de bugs possivel de forma a forncer uma melhor user experience
+    vulnerabilities maior que 2, uma vez que trata de uma aplicação que contem dados de utilizadores não deve ter o minimo de vulnerabilidades''
+ 
+ 
+ não entendi se na task 4 só tinha de instalar um plugin tipo sonarlint num ide..
+
