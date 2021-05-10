@@ -30,20 +30,46 @@
             </ul>
         </div>
     </nav>
-    <div style="margin-left: 2em">
-        <div class="col-lg-12" style="margin-top:2em">
-            <h6>PROCURA PELA INFORMAÇÃO MAIS RECENTE DE UM DADO CONCELHO:</h6>
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    CONCELHOS
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#"> ): </a>
-                    <!-- SEARCH: fill html element with model data spring boot
-                         fazer apenas pesquisa por palavra, depois permitir filtrar por data, tudo inserido por carateres ig FUCK IT UP KENETH -->
-                </div>
+    <div style="margin-left: 1.5em">
+        <form th:action="@{/location}" method="get" class="form-inline" style="margin-top:2%">
+                <h6><b>PROCURA PELA INFORMAÇÃO MAIS RECENTE DE UM DADO CONCELHO:</b></h6>
+                <input  th:name="location" id="concelhoInput" class="form-control form-control-sm" style="width: 10%;margin-left:1%;margin-right:0.2%;" type="text" placeholder="CONCELHO">
+                <button type="submit" class="btn btn-light btn-sm" style="background-color: #e7bdfa">SEARCH</button>
+        </form>
+    </div>
+    <hr style="border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
+    <div th:if="${data == true}" style="margin-left: 1.5em">
+        <div class="row">
+            <div class="col-md-4 ">
+                <h6 th:text="'Resultados para ' + ${location.concelho} + ', ' + ${location.ars}"></h6>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <h6 th:text="'Último update: ' + ${location.data}"></h6>
             </div>
         </div>
+        <div class="row" style="margin:0">
+            <p th:text="'Incidência: ' + ${location.incidencia_risco} + ', ' + ${location.incidencia} + ' em ' + ${location.incidencia_categoria}"></p>
+        </div>
+        <div style="margin:0; line-height: 60%;">
+            <p th:text="'Confirmados: '"></p>
+            <p style="margin-left:1em" th:text="'- Há 1 dia: ' + ${location.confirmados_1}"></p>
+            <p style="margin-left:1em" th:text="'- Há 14 dias: ' + ${location.confirmados_14}"></p>
+        </div>
+        <div style="margin:0;">
+            <p th:text="'Casos_14dias: '+ ${location.casos_14dias}"></p>
+        </div>
+        <div style="margin:0;">
+            <p th:text="'População Total: '+ ${location.populacao_total}"></p>
+        </div>
+        <div style="margin:0;">
+            <p th:text="'População 65+: '+ ${location.populacao_65_mais}"></p>
+        </div>
+        <div style="margin:0;">
+            <p th:text="'Densidade Populacional: '+ ${location.densidade_populacional}"></p>
+        </div>
     </div>
+
 </body>
 </html>

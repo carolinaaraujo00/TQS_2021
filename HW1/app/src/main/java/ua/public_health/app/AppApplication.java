@@ -21,16 +21,11 @@ public class AppApplication {
 		SpringApplication.run(AppApplication.class, args);
 		API_Services service = new API_Services();
 
-		// TO DO:
-		service.getInfoBetween("28-04-2021", "30-04-2021");
-
 
 		// WORKS:
 		// service.getListLocations();
 		// service.getInfoByLocation("aveiro");
 		// service.getInfoByLocationBetweenDates("AVEIRO", "28-04-2021", "30-04-2021");
-
-
 	}
 
 	// https://github.com/carolinaaraujo00/TQS/tree/main/lab4/ex2_3/app/src/main/java/carAPI/app

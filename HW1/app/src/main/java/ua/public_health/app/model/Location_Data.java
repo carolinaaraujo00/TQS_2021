@@ -8,21 +8,18 @@ public class Location_Data {
     // modelo para recolher dados da api relativos à informação mais recente de um determinado concelho
     // usado também para receber informação relativa a um determinado concelho entre determinadas datas
 
-    private String data;
-    private String concelho;
-    private int confirmados_14;
-    private int confirmados_1;
-    private int incidencia;
-    private String incidencia_categoria;
-    private String incidencia_risco;
-    private String tendencia_incidencia;
-    private String tendencia_categoria;
-    private String tendencia_desc;
-    private int casos_14dias;
-    private String ars;
-    private int populacao_total;
-    private int populacao_65_mais;
-    private float densidade_populacional;
+    private String data;                  // feito
+    private String concelho;              // feito
+    private int confirmados_14;           // feito
+    private int confirmados_1;            // feito
+    private int incidencia;               // feito
+    private String incidencia_categoria;  // feito
+    private String incidencia_risco;      // feito
+    private int casos_14dias;             // feito
+    private String ars;                   // feito
+    private int populacao_total;          // feito
+    private int populacao_65_mais;        // feito
+    private float densidade_populacional; // feito
 
     @JsonProperty
     private Location_Data Location_Data;
@@ -94,30 +91,6 @@ public class Location_Data {
 
     public void setIndicendia_risco(String incidencia_risco) {
         this.incidencia_risco = incidencia_risco;
-    }
-
-    public String getTendencia_incidencia() {
-        return tendencia_incidencia;
-    }
-
-    public void setTendencia_incidencia(String tendencia_incidencia) {
-        this.tendencia_incidencia = tendencia_incidencia;
-    }
-
-    public String getTendencia_categoria() {
-        return tendencia_categoria;
-    }
-
-    public void setTendencia_categoria(String tendencia_categoria) {
-        this.tendencia_categoria = tendencia_categoria;
-    }
-
-    public String getTendencia_desc() {
-        return tendencia_desc;
-    }
-
-    public void setTendencia_desc(String tendencia_desc) {
-        this.tendencia_desc = tendencia_desc;
     }
 
     public int getCasos_14dias() {
