@@ -17,15 +17,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e7bdfa;">
-        <a class="navbar-brand" style="margin-left:1%; cursor: default; font-weight: bold" href="#">COVID19</a>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b4c8dd;">
+        <a class="navbar-brand" style="margin-left:1%; cursor: default; font-weight: bold" href="/">COVID19</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a style="color:black;" class="nav-link" href="#">Home</a>
+                    <a style="color:black;" class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a style="color:black;" class="nav-link" href="/cache">Cache</a>
                 </li>
             </ul>
         </div>
@@ -34,40 +37,47 @@
         <form th:action="@{/location}" method="get" class="form-inline" style="margin-top:2%">
                 <h6><b>PROCURA PELA INFORMAÇÃO MAIS RECENTE DE UM DADO CONCELHO:</b></h6>
                 <input  th:name="location" id="concelhoInput" class="form-control form-control-sm" style="width: 10%;margin-left:1%;margin-right:0.2%;" type="text" placeholder="CONCELHO">
-                <button type="submit" class="btn btn-light btn-sm" style="background-color: #e7bdfa">SEARCH</button>
+                <button type="submit" class="btn btn-light btn-sm" style="background-color: #b4c8dd">SEARCH</button>
         </form>
     </div>
     <hr style="border: 0;height: 1px;background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));">
-    <div th:if="${data == true}" style="margin-left: 1.5em">
-        <div class="row">
-            <div class="col-md-4 ">
-                <h6 th:text="'Resultados para ' + ${location.concelho} + ', ' + ${location.ars}"></h6>
-            </div>
-            <div class="col-md-4">
-            </div>
-            <div class="col-md-4">
-                <h6 th:text="'Último update: ' + ${location.data}"></h6>
-            </div>
-        </div>
-        <div class="row" style="margin:0">
-            <p th:text="'Incidência: ' + ${location.incidencia_risco} + ', ' + ${location.incidencia} + ' em ' + ${location.incidencia_categoria}"></p>
-        </div>
-        <div style="margin:0; line-height: 60%;">
-            <p th:text="'Confirmados: '"></p>
-            <p style="margin-left:1em" th:text="'- Há 1 dia: ' + ${location.confirmados_1}"></p>
-            <p style="margin-left:1em" th:text="'- Há 14 dias: ' + ${location.confirmados_14}"></p>
-        </div>
-        <div style="margin:0;">
-            <p th:text="'Casos_14dias: '+ ${location.casos_14dias}"></p>
-        </div>
-        <div style="margin:0;">
-            <p th:text="'População Total: '+ ${location.populacao_total}"></p>
-        </div>
-        <div style="margin:0;">
-            <p th:text="'População 65+: '+ ${location.populacao_65_mais}"></p>
-        </div>
-        <div style="margin:0;">
-            <p th:text="'Densidade Populacional: '+ ${location.densidade_populacional}"></p>
+    <div th:if="${data == true}" style="margin:1%">
+        <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                    <tr style="background-color: #b4c8dd ">
+                        <th style="background-color: #b4c8dd" scope="col">Data</th>
+                        <th style="background-color: #b4c8dd" scope="col">Concelho</th>
+                        <th style="background-color: #b4c8dd" scope="col">Área</th>
+                        <th style="background-color: #b4c8dd" scope="col">Confirmados 14</th>
+                        <th style="background-color: #b4c8dd" scope="col">Confirmados 1</th>
+                        <th style="background-color: #b4c8dd" scope="col">Incidência</th>
+                        <th style="background-color: #b4c8dd" scope="col">Incidência Categoria</th>
+                        <th style="background-color: #b4c8dd" scope="col">Incidência Risco</th>
+                        <th style="background-color: #b4c8dd" scope="col">Incidência Risco</th>
+                        <th style="background-color: #b4c8dd" scope="col">Casos 14 Dias</th>
+                        <th style="background-color: #b4c8dd" scope="col">População Total</th>
+                        <th style="background-color: #b4c8dd" scope="col">População 65 +</th>
+                        <th style="background-color: #b4c8dd" scope="col">Densidade Populacional</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td th:text="${location.data}" scope="row"> </td>
+                        <td th:text="${location.concelho}" scope="row"> </td>
+                        <td th:text="${location.ars}" scope="row"> </td>
+                        <td th:text="${location.confirmados_14}" scope="row"> </td>
+                        <td th:text="${location.confirmados_1}" scope="row"> </td>
+                        <td th:text="${location.incidencia}" scope="row"> </td>
+                        <td th:text="${location.incidencia_categoria}" scope="row"> </td>
+                        <td th:text="${location.incidencia_risco}" scope="row"> </td>
+                        <td th:text="${location.casos_14dias}" scope="row"> </td>
+                        <td th:text="${location.populacao_total}" scope="row"> </td>
+                        <td th:text="${location.populacao_65_mais}" scope="row"> </td>
+                        <td th:text="${location.densidade_populacional}" scope="row"> </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

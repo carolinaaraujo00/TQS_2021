@@ -1,35 +1,35 @@
 package ua.public_health.app.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import ua.public_health.app.model.Location;
-import ua.public_health.app.model.Location_Data;
-import ua.public_health.app.services.API_Services;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import ua.public_health.app.model.Covid19_Information;
+import ua.public_health.app.service.API_Service;
 
-import java.net.MalformedURLException;
-
-import java.util.logging.Logger;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@Controller
+@RestController
 public class RESTController {
-    private API_Services service = new API_Services();
-    private Logger logger = Logger.getLogger(UIController.class.getName());
+    private Logger logger = Logger.getLogger(RESTController.class.getName());
+    private API_Service service = new API_Service();
 
-    @GetMapping(value = "/info/location_names")
-    public Location[] location_names(Model model) throws MalformedURLException, JsonProcessingException {
+    @GetMapping("info/location_names")
+    // CURL: http://localhost:8080/info/location_names
+
+    public Location[] location_names() {
+        logger.log(Level.INFO, "REST Controller call retrieve all location names");
+
         return service.getListLocations();
     }
 
-    @GetMapping(value = "/info/by_location={cidade}")
-    public Location_Data info_by_location(@PathVariable("cidade") String cidade) {
+    @GetMapping("info/by_location")
+    // CURL: http://localhost:8080/info/by_location/?location=aveiro
+
+    public Covid19_Information info_by_location(@RequestParam(value = "location") String cidade) {
+        logger.log(Level.INFO, String.format("REST Controller retrieve data from location: %s", cidade));
+
         return service.getInfoByLocation(cidade);
     }
 }
